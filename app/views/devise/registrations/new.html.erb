@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <h1 class="text-center">
+        Registro de usuarios
+      </h1>  
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :level_id, :value => 2 %>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              Nombre<br>
+              <%= f.text_field :name, autofocus: true, autocomplete: "nombre", :class => 'form-control' %>
+            </div>            
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              Apellidos<br>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "nombre", :class => 'form-control' %>
+            </div>            
+          </div>                    
+          <div class="col-sm-4">
+            <div class="form-group">
+              E-mail<br>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
+            </div>                        
+          </div>
+        </div>
+        <div class="form-group">
+          Clave <br>
+          <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          Confirmar clave<br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Registrarme", :class => 'btn btn-primary' %>
+          <%= link_to "Iniciar sessión", new_session_path(resource_name), :class => 'btn btn-primary' %>
+        </div>
+      <% end %>        
+    </div>    
+  </div>
+
+</div>

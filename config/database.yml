@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8  
+  pool: 5
+
+#local
+development:
+ <<: *default
+ database: global_work_development
+ pool: 5
+ username: davidmao
+ password: cataratas
+ host: localhost
+##
+#hobby basic
+# development:
+#   <<: *default
+#   database: d86js3fifhg4mg
+#   pool: 5
+#   username: dqlqjvojfoauho
+#   password: c24c69535ec43395c03ed8f95bfb02b87d208663605650bd8a48bf353ad85697
+#   host:     ec2-54-235-101-91.compute-1.amazonaws.com
+#   sslmode:  require

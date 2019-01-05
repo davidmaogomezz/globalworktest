@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_candidate: MyString
+  last_name_candidate: MyString
+  number_document: MyString
+  vacancy: one
+  birthdate: 2019-01-04
+  phone: MyString
+
+two:
+  name_candidate: MyString
+  last_name_candidate: MyString
+  number_document: MyString
+  vacancy: two
+  birthdate: 2019-01-04
+  phone: MyString

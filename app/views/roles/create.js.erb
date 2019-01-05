@@ -1,0 +1,5 @@
+if ($('#modalMessages').length > 0){
+    $('#modalMessages').remove();
+}
+$('body').append("<%= j render partial: 'shared/modal', :locals => { :alert => @alert, :messages => @messages } %>")
+$('#modalMessages').modal('show');

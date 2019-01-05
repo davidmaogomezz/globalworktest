@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <h1 class="text-center">
+        Iniciar sessión
+      </h1>        
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Ingresar", :class => 'btn btn-primary'  %>          
+          <%= link_to 'Registrarme', new_registration_path(resource_name), :class => 'btn btn-primary'%>     
+        </div>
+      <% end %>      
+    </div>    
+  </div>
+</div> 
+

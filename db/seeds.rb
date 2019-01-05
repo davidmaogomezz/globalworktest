@@ -1,0 +1,8 @@
+# Role.create(:name => 'Administrator')
+# Role.create(:name => 'Analyst')
+# RoleUser.create(:user_id => 1, :role_id => 1)
+# RoleUser.create(:user_id => 1, :role_id => 2)
+Vacancy.create(:name => 'Desarrollador Web')
+Vacancy.create(:name => 'Administrador de base de datos')
+Vacancy.create(:name => 'Diseñados')
+Vacancy.create(:name => 'Desarrollador Móvil')

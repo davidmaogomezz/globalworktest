@@ -1,0 +1,36 @@
+<% if can? :read, User %>
+<div class="container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Rol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr class="table-active">
+            <th>
+              <%= user.id %>
+            </th>
+            <td>
+              <%= user.email %>
+            </td>
+            <td>
+              <%= user.name %>
+            </td>
+            <td>
+              <%= user.last_name %>
+            </td>
+            <td>
+                <%= user.first_role %>
+              </td>            
+          </tr>
+        <% end %>      
+      </tbody>
+    </table>    
+  </div>    
+<% end %>

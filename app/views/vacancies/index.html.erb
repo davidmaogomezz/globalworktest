@@ -1,0 +1,47 @@
+<% if can? :read, Vacancy %>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4 mx-auto">
+        <h1>Vacantes</h1> 
+      </div>
+    </div>    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @vacancies.each do |vacancy| %>
+          <tr class="table-active">
+            <th>
+              <%= vacancy.id %>
+            </th>
+            <td>
+              <%= vacancy.name %>
+            </td>
+            <td style="text-align: center;" class="button-edit-record">
+                <%=link_to("vacancies/#{vacancy.id}/edit", :class => 'btn btn-primary')do%>
+                  <i class="fas fa-search"></i>
+                <%end%>
+              </td>                        
+            <td style="text-align: center;" class="button-edit-record">
+              <%=link_to("vacancies/#{vacancy.id}/edit", :class => 'btn btn-primary')do%>
+                <i class="fas fa-edit"></i>
+              <%end%>
+            </td>            
+            <td style="text-align: center;" class="button-delete-record">
+              <%=link_to("vacancies/#{vacancy.id}", :class => 'btn btn-primary', method: 'delete')do%>
+                <i class="fas fa-trash"></i>
+              <%end%>
+            </td>            
+          </tr>
+        <% end %>      
+      </tbody>
+    </table>  
+    <%=link_to("vacancies/new", :class => 'btn btn-primary')do%>
+      <i class="fas fa-plus"></i>
+    <%end%>            
+  </div> 
+<% end %>   

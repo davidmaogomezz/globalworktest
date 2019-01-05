@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4 mx-auto">
+        <h1>Aplicar</h1>
+      </div>
+    </div>
+    
+    <%= form_with(model: apply, remote: true) do |form| %>
+    <% if apply.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(apply.errors.count, "error") %> prohibited this apply from being saved:</h2>
+  
+        <ul>
+        <% apply.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="form-grop">
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="">Nombre*</label>
+          <%= form.text_field :name_candidate, :class => 'form-control', :placeholder => 'Nombre'%>
+        </div>
+        <div class="col-sm-6">
+            <label for="">Apellidos*</label>
+          <%= form.text_field :last_name_candidate, :class => 'form-control', :placeholder => 'Apellidos'%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="">Número de documento*</label>
+          <%= form.text_field :number_document, :class => 'form-control', :placeholder => 'Número de documento'%>
+        </div>
+        <div class="col-sm-6">
+          <label for="">Cargo al que aspira*</label>
+          <%= form.select :vacancy_id, Vacancy.all.map{|v| [v.name, v.id]}, {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="">Fecha de nacimiento*</label>
+          <%= form.date_field :birthdate, :class => 'form-control', :placeholder => '' %>
+        </div>
+        <div class="col-sm-6">
+          <label for="">Telefono de contacto*</label>
+          <%= form.text_field :phone, :class => 'form-control', :placeholder => '' %>
+        </div>
+      </div>
+    </div>
+    <p></p>
+    <div class="actions">
+      <%= form.submit 'Aplicar', :class => 'btn btn-lg btn-primary btn-block'%>
+    </div>
+  <% end %>  
+</div>
+
+

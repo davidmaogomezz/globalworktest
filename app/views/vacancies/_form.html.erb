@@ -1,0 +1,40 @@
+<% if can? :read, vacancy %>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4 mx-auto">
+        <h1>Vacantes</h1>
+      </div>
+    </div>
+    <%= form_with(model: vacancy, remote: true) do |form| %>
+      <% if vacancy.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(vacancy.errors.count, "error") %> prohibited this vacancy from being saved:</h2>
+    
+          <ul>
+          <% vacancy.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-12">
+              <label for="">Nombre*</label>
+              <%= form.text_field :name, :class => 'form-control' %>
+          </div>
+        </div>
+        <p></p>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="actions">
+              <%= form.submit 'Crear', :class => 'btn btn-lg btn-primary btn-block'%>
+            </div>          
+          </div>        
+        </div>
+      </div>
+    <% end %>
+    
+  </div>
+  
+<% end %>
