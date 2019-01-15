@@ -17,6 +17,9 @@ class User < ApplicationRecord
   end
 
   def first_role
+    if self.role_users.count == 0
+      RoleUser.create(:user_id => self.id, :role_id => 2)      
+    end
     self.role_users.first.role.name
   end
 
